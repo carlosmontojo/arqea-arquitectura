@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arqea Arquitectura · Estudio de Interiorismo</title>
+  <meta name="description" content="Estudio de arquitectura de interiores en Madrid. Reformas, diseño de mobiliario y gestión integral de inmuebles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blanco: #fff;
+      --gris-claro: #f5f5f5;
+      --beige: #ede7de;
+      --negro: #181818;
+      --gris-medio: #bdbdbd;
+      --acento: #c2b280;
+      --fuente-principal: 'Montserrat', Arial, sans-serif;
+      --fuente-titulo: 'Playfair Display', serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+      background: var(--gris-claro);
+    }
+    body {
+      font-family: var(--fuente-principal);
+      color: var(--negro);
+      background: var(--gris-claro);
+      line-height: 1.7;
+      font-size: 1.08rem;
+    }
+    header {
+      background: var(--blanco);
+      border-bottom: 1px solid var(--beige);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      font-family: var(--fuente-titulo);
+      font-size: 2rem;
+      color: var(--negro);
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--negro);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--acento);
+      transition: width 0.2s;
+      margin: 0 auto;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links a:hover {
+      color: var(--acento);
+    }
+    /* Hero Section */
+    .hero {
+      background: var(--blanco);
+      padding: 5rem 0 4rem 0;
+      text-align: center;
+      border-bottom: 1px solid var(--beige);
+    }
+    .hero h1 {
+      font-family: var(--fuente-titulo);
+      font-size: 2.7rem;
+      color: var(--negro);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .hero h2 {
+      font-size: 1.3rem;
+      color: var(--gris-medio);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      font-family: var(--fuente-principal);
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+      color: var(--negro);
+      font-size: 1.08rem;
+    }
+    .hero .btn {
+      display: inline-block;
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 0.9rem 2.2rem;
+      border-radius: 30px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: background 0.2s, color 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .hero .btn:hover {
+      background: var(--acento);
+      color: var(--negro);
+    }
+    /* Secciones */
+    section {
+      padding: 5rem 0 4rem 0;
+      background: var(--gris-claro);
+    }
+    section:nth-of-type(even) {
+      background: var(--blanco);
+    }
+    .section-title {
+      font-family: var(--fuente-titulo);
+      font-size: 2.1rem;
+      color: var(--negro);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .section-intro {
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+      color: var(--gris-medio);
+      font-size: 1.08rem;
+      text-align: center;
+    }
+    /* Servicios */
+    .servicios-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .servicio-bloque {
+      background: var(--beige);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      padding: 2.2rem 2rem 1.5rem 2rem;
+      flex: 1 1 320px;
+      min-width: 290px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .servicio-bloque h3 {
+      font-family: var(--fuente-titulo);
+      font-size: 1.25rem;
+      color: var(--negro);
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .servicio-bloque ul {
+      list-style: none;
+      padding-left: 0;
+      color: var(--negro);
+    }
+    .servicio-bloque ul li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.2em;
+      position: relative;
+    }
+    .servicio-bloque ul li::before {
+      content: "•";
+      color: var(--acento);
+      position: absolute;
+      left: 0;
+      font-size: 1.1em;
+      top: 0;
+    }
+    .servicios-frase {
+      text-align: center;
+      font-size: 1.15rem;
+      color: var(--negro);
+      font-style: italic;
+      margin-top: 2.5rem;
+      font-family: var(--fuente-titulo);
+      letter-spacing: 0.5px;
+    }
+    /* Proyectos */
+    .proyectos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+    }
+    .proyecto-card {
+      background: var(--beige);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      overflow: hidden;
+      max-width: 340px;
+      min-width: 270px;
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+    }
+    .proyecto-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .proyecto-card-content {
+      padding: 1.3rem 1.2rem 1.2rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .proyecto-card h4 {
+      font-family: var(--fuente-titulo);
+      font-size: 1.15rem;
+      color: var(--negro);
+      font-weight: 600;
+    }
+    .proyecto-card .tipo {
+      color: var(--acento);
+      font-size: 0.98rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .proyecto-card p {
+      color: var(--negro);
+      font-size: 1rem;
+    }
+    /* Sobre Nosotras */
+    .sobre-nosotras-content {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--negro);
+      font-size: 1.08rem;
+      text-align: center;
+      line-height: 1.8;
+    }
+    /* Contacto */
+    .contacto-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 2.5rem;
+    }
+    .contacto-form {
+      background: var(--beige);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      padding: 2rem 1.5rem;
+      min-width: 290px;
+      max-width: 370px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .contacto-form label {
+      font-weight: 500;
+      color: var(--negro);
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+    .contacto-form input,
+    .contacto-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid var(--gris-medio);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: var(--fuente-principal);
+      background: var(--blanco);
+      color: var(--negro);
+      resize: none;
+      transition: border 0.2s;
+    }
+    .contacto-form input:focus,
+    .contacto-form textarea:focus {
+      border: 1.5px solid var(--acento);
+      outline: none;
+    }
+    .contacto-form button {
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 0.8rem 0;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .contacto-form button:hover {
+      background: var(--acento);
+      color: var(--negro);
+    }
+    .contacto-datos {
+      flex: 1 1 260px;
+      min-width: 220px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      font-size: 1.08rem;
+      color: var(--negro);
+    }
+    .contacto-datos .dato {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+    }
+    .contacto-datos .dato span {
+      font-size: 1.3em;
+    }
+    .contacto-datos a {
+      color: var(--negro);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contacto-datos a:hover {
+      color: var(--acento);
+      text-decoration: underline;
+    }
+    .contacto-mapa {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      width: 100%;
+      min-width: 220px;
+      max-width: 340px;
+      height: 200px;
+    }
+    /* Footer */
+    footer {
+      background: var(--negro);
+      color: var(--blanco);
+      text-align: center;
+      padding: 2rem 0 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .servicios-grid, .proyectos-grid, .contacto-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .container {
+        padding: 0 1rem;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        height: auto;
+        gap: 0.7rem;
+        padding: 0.7rem 0;
+      }
+      .hero {
+        padding: 3.5rem 0 2.5rem 0;
+      }
+      section {
+        padding: 3.5rem 0 2.5rem 0;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .proyecto-card img {
+        height: 140px;
+      }
+      .contacto-mapa {
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="logo">Arqea Arquitectura</a>
+        <div class="nav-links">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#sobre-nosotras">Sobre Nosotras</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- INICIO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <h1>Diseñamos y transformamos espacios.</h1>
+      <h2>En Arqea Arquitectura damos forma a tus ideas, adaptándonos a tu estilo y presupuesto. Creamos hogares con alma y gestionamos propiedades con eficiencia.</h2>
+      <p>
+        Somos un estudio de arquitectura de interiores especializado en reformas, diseño de mobiliario y gestión integral de inmuebles. Ya sea que quieras renovar tu casa, amueblar una propiedad para alquilar o delegar toda la gestión de tu piso, en Arqea lo hacemos fácil, bonito y funcional.
+      </p>
+      <a href="#servicios" class="btn">Conoce nuestros servicios</a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <h2 class="section-title">Servicios adaptados a cada cliente.</h2>
+      <p class="section-intro">
+        Ofrecemos soluciones completas de diseño, reforma y gestión, adaptadas a cada necesidad y presupuesto. Nuestro objetivo es hacer que el proceso sea sencillo y satisfactorio.
+      </p>
+      <div class="servicios-grid">
+        <div class="servicio-bloque">
+          <h3>Arquitectura e Interiorismo</h3>
+          <ul>
+            <li><strong>Reformas integrales</strong><br>
+              Desde la redistribución del espacio hasta la reforma total. Planificamos, ejecutamos y supervisamos todo el proceso.
+            </li>
+            <li><strong>Diseño de interiores a medida</strong><br>
+              Creamos espacios estéticamente armónicos y funcionales, ajustados a tu estilo y presupuesto.
+            </li>
+            <li><strong>Proyectos llave en mano</strong><br>
+              Nos ocupamos de absolutamente todo. Tú solo tienes que abrir la puerta.
+            </li>
+            <li><strong>Diseño y suministro de mobiliario</strong><br>
+              Seleccionamos o diseñamos el mobiliario ideal para cada espacio, optimizando funcionalidad y estética.
+            </li>
+          </ul>
+        </div>
+        <div class="servicio-bloque">
+          <h3>Gestión de inmuebles</h3>
+          <ul>
+            <li><strong>Búsqueda y selección de inquilinos</strong><br>
+              Nos encargamos de encontrar perfiles adecuados para tu vivienda.
+            </li>
+            <li><strong>Gestión de pagos y cobros</strong><br>
+              Control total de rentas, depósitos, incidencias y facturación.
+            </li>
+            <li><strong>Atención al inquilino</strong><br>
+              Somos el contacto directo para resolver cualquier problema o necesidad.
+            </li>
+            <li><strong>Supervisión y mantenimiento del inmueble</strong><br>
+              Revisamos el estado de la propiedad y coordinamos cualquier reparación o mejora.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="servicios-frase">
+        Ya sea tu hogar o tu inversión, nos encargamos de todo para que tú no tengas que preocuparte por nada.
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="container">
+      <h2 class="section-title">Nuestros espacios hablan por nosotras.</h2>
+      <p class="section-intro">
+        Cada proyecto es único, pero todos comparten algo en común: están pensados para las personas que los habitan. Aquí puedes ver una selección de nuestras reformas, diseños y espacios gestionados.
+      </p>
+      <div class="proyectos-grid">
+        <div class="proyecto-card">
+          <img src="https://source.unsplash.com/random/800x600?interior,modern,1" alt="Proyecto 1">
+          <div class="proyecto-card-content">
+            <h4>Ático en Chamberí</h4>
+            <div class="tipo">Reforma integral</div>
+            <p>
+              Transformación completa de un ático en Madrid, optimizando la luz natural y creando un ambiente cálido y contemporáneo.
+            </p>
+          </div>
+        </div>
+        <div class="proyecto-card">
+          <img src="https://source.unsplash.com/random/800x600?interior,design,2" alt="Proyecto 2">
+          <div class="proyecto-card-content">
+            <h4>Loft en Lavapiés</h4>
+            <div class="tipo">Diseño de interiores</div>
+            <p>
+              Espacio abierto y funcional, con mobiliario a medida y detalles en madera para un estilo industrial y acogedor.
+            </p>
+          </div>
+        </div>
+        <div class="proyecto-card">
+          <img src="https://source.unsplash.com/random/800x600?interior,apartment,3" alt="Proyecto 3">
+          <div class="proyecto-card-content">
+            <h4>Piso en Retiro</h4>
+            <div class="tipo">Gestión integral</div>
+            <p>
+              Gestión y puesta en valor de un piso para alquiler, incluyendo decoración, mantenimiento y atención al inquilino.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTRAS -->
+  <section id="sobre-nosotras">
+    <div class="container">
+      <h2 class="section-title">Creamos hogares que se viven.</h2>
+      <div class="sobre-nosotras-content">
+        <p>
+          Arqea Arquitectura nace con una idea clara: acercar el diseño de interiores y la gestión inmobiliaria a todo tipo de personas, sin importar el tamaño de su presupuesto.
+        </p>
+        <p>
+          Combinamos experiencia técnica, sensibilidad estética y compromiso con el cliente. Creemos que un buen diseño no es solo bonito: también es práctico, duradero y adaptable. Y creemos que una buena gestión debe darte tranquilidad.
+        </p>
+        <p>
+          Trabajamos con materiales de calidad, profesionales de confianza y un enfoque personalizado para cada cliente. Nos involucramos en cada proyecto como si fuera nuestro.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="container">
+      <h2 class="section-title">Hablemos.</h2>
+      <p class="section-intro">
+        Si estás pensando en reformar, redecorar o alquilar tu vivienda, cuéntanos tu caso. Nos encantará ayudarte a darle forma.
+      </p>
+      <div class="contacto-grid">
+        <form class="contacto-form" autocomplete="off">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono">
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+          <button type="submit">Enviar consulta</button>
+        </form>
+        <div class="contacto-datos">
+          <div class="dato"><span>📍</span> Calle de ejemplo, 123 · Madrid</div>
+          <div class="dato"><span>📞</span> <a href="tel:+34600000000">+34 600 000 000</a></div>
+          <div class="dato"><span>✉️</span> <a href="mailto:info@arqea.es">info@arqea.es</a></div>
+          <div class="dato"><span>🌐</span> <a href="https://instagram.com/arqeaarquitectura" target="_blank">@arqeaarquitectura</a></div>
+          <div class="contacto-mapa">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.406393964839!2d-3.703790684602019!3d40.41677597936409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42299780000001%3A0x7e8e8e8e8e8e8e8e!2sMadrid!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Mapa de ejemplo"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2024 Arqea Arquitectura · Estudio de Interiorismo · Madrid
+  </footer>
+</body>
+</html> 
