@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Limpia Fotos",
+    "slug": "limpia-fotos",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "limpiafotos",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0f0f11",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.carlosmontojo.limpiafotos"
+    },
+    "android": {
+      "package": "com.carlosmontojo.limpiafotos",
+      "adaptiveIcon": {
+        "backgroundColor": "#0f0f11",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-image",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Limpia Fotos necesita ver tu carrete para mostrarte las fotos y borrar las que descartes.",
+          "savePhotosPermission": "Limpia Fotos necesita permiso para gestionar tus fotos.",
+          "granularPermissions": [
+            "photo"
+          ],
+          "preventAutomaticLimitedAccessAlert": true
+        }
+      ],
+      "expo-font"
+    ]
+  }
+}
