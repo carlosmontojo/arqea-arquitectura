@@ -42,6 +42,15 @@
         }
       ],
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c67d401e-36b2-4e2f-b531-f36fe741639d"
+      }
+    },
+    "owner": "carlosmonmov",
+    "updates": {
+      "url": "https://u.expo.dev/c67d401e-36b2-4e2f-b531-f36fe741639d"
+    }
   }
 }
