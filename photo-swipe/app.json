@@ -3,6 +3,9 @@
     "name": "Limpia Fotos",
     "slug": "limpia-fotos",
     "version": "1.0.0",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "limpiafotos",
